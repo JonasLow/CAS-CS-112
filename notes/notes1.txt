@@ -1,0 +1,36 @@
+Data Structures
+- Logical organisation of the data
+- Physical memory which stores the data
+
+How we store the data depends on how we want to access the data and what we are interested in
+
+Fundamental Data Structures
+- Ways of imposing order on a collection of information
+- list, stacks and queues (linear)
+- trees (hierarchical in nature)
+- hash tables (relational in nature; mapping relationships i.e. Dictionaries)
+
+Compare data structures and algorithms imples we have the ability to measure the efficiency
+- Big O
+
+High Level Programming Languages
+- Provides a higher level abstratcion from the underlying hardware
+-- Allows symbolic names to represent memory cells
+-- Operations fo not depend on instruction set
+-- I/O is independent of the I/O device
+
+Python == Interpreted language implemention (line-by-line)
+Java == Compiled language implementation
+
+- Java programs are organised as classes stored in files with the ".java" extension
+- Class name is same as the file name
+- Curly braces enclose classes and methods
+- Method ("function") within the class
+
+Classes are only used to define new custom data types (Python)
+- not all programs need a class
+- the program can run without pre-processing it (executable from the shell)
+
+Classes define data types but they also serve as "containers" for other code
+- Every program needs ar leasy one mehtod called main()
+- In java the program will be default begin with main

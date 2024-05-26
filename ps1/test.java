@@ -1,3 +1,3 @@
-public class tets {
+public class test {
     
 }

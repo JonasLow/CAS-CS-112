@@ -7,8 +7,8 @@
  * 
  * CS 112 Course Staff (cs112-staff@cs.bu.edu)
  * 
- * completed by: your name and email
- * partner (if any): 
+ * completed by: Low Zhe Kai Jonas (lowjonas@bu.edu)
+ * partner (if any): NIL
  */ 
 
 import java.util.*; 
@@ -36,15 +36,19 @@ public class TripComp {
          * additional Scanner object.
          */
         System.out.print("gas price in cents: ");
-        int gasPrice = 0;
+        int gasPrice = scan.nextInt();
         System.out.print("MPG rating of the car: ");
-        int mpgRating = 0;
+        int mpgRating = scan.nextInt();
         System.out.print("distance in miles: ");
-        int distance = 0;
+        int distance = scan.nextInt();
 
         /*
          * TO DO: complete the rest of the program below.
          */
-        
+
+         double cost = gasPrice / 100.0 * distance / mpgRating;
+         String str1 = String.format("The cost of the trip is $%.2f.", cost);
+         System.out.println(str1);
+         scan.close();
     }
 }

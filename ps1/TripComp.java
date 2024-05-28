@@ -47,8 +47,12 @@ public class TripComp {
          */
 
          double cost = gasPrice / 100.0 * distance / mpgRating;
-         String str1 = String.format("The cost of the trip is $%.2f.", cost);
-         System.out.println(str1);
-         scan.close();
+         if (cost == (int) cost) {
+            System.out.println("The cost of the trip is $" + (int) cost + ".");   
+         } else {
+            String str1 = String.format("The cost of the trip is $%.2f.", cost);
+            System.out.println(str1);
+            scan.close();
+         }
     }
 }

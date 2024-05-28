@@ -75,12 +75,7 @@
              S = x;
          }
 
-         int M = z;
-         if (y <= x && y >= z) {
-            M = y;
-         } else if (x <= y && x >= z) {
-             M = x;
-         }
+         int M = x + y + z - S - L;
 
          return "The numbers in ascending order are: " + S + " " + M + " " + L;
      }
@@ -91,7 +86,7 @@
       * Program execution begins with this method.
       */
      public static void main(String[] args) {
-         System.out.println("Welcome to my program/nLet's do some math!");
+         System.out.println("Welcome to my program\nLet's do some math!");
          Scanner scan = new Scanner(System.in);        
  
          // variable declarations
@@ -113,39 +108,78 @@
            * menu choices.
            */
              System.out.print("Enter your choice: ");
-             int option = scan.nextInt();
-            
-             if (option == 0) {
-                System.out.print("Enter the first integer: "); 
-                n1 = scan.nextInt();
-                System.out.print("Enter the second integer: ");
-                n2 = scan.nextInt();
-                System.out.print("Enter the third integer: ");
-                n3 = scan.nextInt();
-                System.out.println("Numbers entered are: " + n1 +" "+ n2 +" "+ n3);
-                initial = true;
-             } else if (!initial) {
-                System.out.println("Cannot compute, numbers have not been entered.");
-                System.out.println("");
-             } else if (option == 1) {
-                int big = method1(n1, n2, n3);
-                System.out.println("Largest number entered is: " + big);
-             } else if (option == 2) {
-                int summ = method2(n1, n2, n3);
-                System.out.println("Sum is: " + summ);
-             } else if (option == 3) {
-                int range = method3(n2, n3, n1);
-                System.out.println("Range is: " + range);
-             } else if (option == 4) {
-                double avg = method4(n2, n3, n1);
-                System.out.println("Average is: " + avg);
-             } else if (option == 5) {
-                String ascendo = method5(n2, n3, n1);
-                System.out.println("Ascending is: " + ascendo);
-             } else if (option == 6) {
-                more_input = false;
-             } else {
+             int option = -1;
+             try {
+                option = scan.nextInt();
+             } catch (InputMismatchException e) {
                 System.out.println("Invalid choice. Please try again.");
+                scan.next();
+                continue;
+             }
+
+             switch (option) {
+                case 0:
+                    System.out.print("Enter the first integer: "); 
+                    n1 = scan.nextInt();
+                    System.out.print("Enter the second integer: ");
+                    n2 = scan.nextInt();
+                    System.out.print("Enter the third integer: ");
+                    n3 = scan.nextInt();
+                    System.out.println("Numbers entered are: " + n1 +" "+ n2 +" "+ n3);
+                    initial = true;
+                    break;
+            
+                case 1:
+                    if (!initial) {
+                        System.out.println("Cannot compute, numbers have not been entered.");
+                    } else {
+                        int big = method1(n1, n2, n3);
+                        System.out.println("Largest number entered is: " + big);
+                    }
+                    break;
+
+                case 2:
+                    if (!initial) {
+                        System.out.println("Cannot compute, numbers have not been entered.");
+                    } else {
+                        int summ = method2(n1, n2, n3);
+                        System.out.println("Sum is: " + summ);
+                    }
+                    break;
+
+                case 3:
+                    if (!initial) {
+                        System.out.println("Cannot compute, numbers have not been entered.");
+                    } else {
+                        int range = method3(n2, n3, n1);
+                        System.out.println("Range is: " + range);
+                    }
+                    break;
+
+                case 4:
+                    if (!initial) {
+                        System.out.println("Cannot compute, numbers have not been entered.");
+                    } else {
+                        double avg = method4(n2, n3, n1);
+                        System.out.println("Average is: " + avg);
+                    }
+                    break;
+
+                case 5:
+                    if (!initial) {
+                        System.out.println("Cannot compute, numbers have not been entered.");
+                    } else {
+                        String ascendo = method5(n2, n3, n1);
+                        System.out.println("Ascending is: " + ascendo);
+                    }
+                    break;
+
+                case 6:
+                    more_input = false;
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
              }
 
              if (initial && more_input) {
@@ -157,4 +191,4 @@
          System.out.println("Have a nice day!");
          scan.close();
      }
- }
+}

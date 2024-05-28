@@ -114,15 +114,7 @@
            */
              System.out.print("Enter your choice: ");
              int option = scan.nextInt();
-             
-             try {
-                option = scan.nextInt();
-             } catch (InputMismatchException e) {
-                System.out.println("Invalid choice. Please try again.");
-                scan.next();
-                continue;
-             }
-
+            
              if (option == 0) {
                 System.out.print("Enter the first integer: "); 
                 n1 = scan.nextInt();

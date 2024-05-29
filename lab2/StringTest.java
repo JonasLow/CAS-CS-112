@@ -1,8 +1,13 @@
+import java.util.*;
+
 public class StringTest {
     public static void main(String[] args) {
         String s1 = "Boston";
         String s2 = "University";
         
+        System.out.println(s1.charAt(0));
+        System.out.println(s1.indexOf("B"));
+        s1 = s1.replace('o','0');
         System.out.println(s1);
         System.out.println(s2);
 

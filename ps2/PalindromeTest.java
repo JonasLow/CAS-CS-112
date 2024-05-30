@@ -57,4 +57,11 @@ public class PalindromeTest {
         userInput.close();
         return result;
     }
+
+    /* Testing code
+    public static void main(String[] args) {
+        System.out.println(isPalindrome("racecar"));
+        System.out.println(Arrays.toString(inputStringPalindrome()));
+    }
+    */
 }

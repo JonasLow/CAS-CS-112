@@ -31,7 +31,11 @@ public class StringRecursion {
 
 
     public static int find(char ch, String str) {
-        if (str.length() == 0 || str == null) {
+        if (str == null) {
+            return -1;
+        }
+
+        if (str.length() == 0) {
             return -1;
         }
 
@@ -49,7 +53,10 @@ public class StringRecursion {
 
 
     public static String weave(String str1, String str2) {
-        if (str1 == null || str2 == null) {
+        if (str1 == null) {
+            throw new IllegalArgumentException();
+        }
+        if (str2 == null) {
             throw new IllegalArgumentException();
         }
         
@@ -64,7 +71,11 @@ public class StringRecursion {
 
     // Literally works the same way as the find method
     public static int indexOf(char ch, String str) {
-        if (str.length() == 0 || str == null) {
+        if (str == null) {
+            return -1;
+        }
+
+        if (str.length() == 0) {
             return -1;
         }
 

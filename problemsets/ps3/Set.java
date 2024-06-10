@@ -18,16 +18,18 @@ public class Set {
     }
 
     public Set(int[] arr) {
-        this.set = new int[arr.length];
-        System.arraycopy(arr, 0, this.set, 0, arr.length);
-        this.size = arr.length;
-        this.next = arr.length;
+        this.set = new int[SIZE];
+        this.size = SIZE;
+        this.next = 0;
+        for (int value: arr) {
+            this.insert(value);
+        }
     }
 
     @Override
     public Set clone() {
         Set clonedSet = new Set();
-        for (int i = 0; i < next; i++) {
+        for (int i = 0; i < this.next; i++) {
             clonedSet.insert(this.set[i]);
         }
         return clonedSet;
@@ -93,18 +95,25 @@ public class Set {
     }
 
     public void delete(int k) {
-        for (int i = 0; i < this.size; i++) {
+        int index = -1;
+        for (int i = 0; i < this.next; i++) {
             if (this.set[i] == k) {
                 for (int j = i; j < next - 1; j++) {
                     this.set[j] = this.set[j + 1];
                 }
-                this.next--;
-                this.size--;
+                next--; 
+                /* 
                 int[] newArr = new int[next];
                 System.arraycopy(this.set, 0, newArr, 0, next);
                 this.set = newArr;
-                break;
+                this.size = next; 
+                */
+                index = i;
+                break; 
             }
+        }
+        if (index == -1) {
+            return;
         }
     }
 
@@ -121,7 +130,7 @@ public class Set {
 
     public Set intersection(Set s) {
         Set interSet = new Set();
-        for (int i = 0; i < next; i++) {
+        for (int i = 0; i < this.next; i++) {
             if (s.member(this.set[i])) {
                 interSet.insert(this.set[i]);
             }
@@ -131,9 +140,9 @@ public class Set {
 
     public Set setdifference(Set s) {
         Set diffSet = new Set();
-        for (int element: this.set) {
-            if (!s.member(element)) {
-                diffSet.insert(element);
+        for (int i = 0; i < this.next; i++) {
+            if (!s.member(this.set[i])) {
+                diffSet.insert(this.set[i]);
             }
         }
         return diffSet;

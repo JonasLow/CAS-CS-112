@@ -1,20 +1,19 @@
 public class ArrayRecursion {
     public static boolean search(Object item, Object[] arr, int start) {
-        // Always check for null references first!
-        if (arr == null) {
-           throw new IllegalArgumentException();
+        if (arr == null || start < 0) {
+            throw new IllegalArgumentException();
         }
-        
-        if (arr.length <= start) {
+    
+        if (start >= arr.length) {
             return false;
         }
 
         if (arr[start].equals(item)) {
             return true;
-        } else {
-            return search(item, arr, start + 1);
         }
-     }
+        return search(item, arr, start + 1);
+    }
+    
 
 
     public static String reverseArrayToString(Object[] arr, int index) {
@@ -41,7 +40,7 @@ public class ArrayRecursion {
         }
         return reverseArrayToString(arr, index + 1) + ", " + arr[index];
     }
-
+    
     /*
     public static void main(String[] args) {
 

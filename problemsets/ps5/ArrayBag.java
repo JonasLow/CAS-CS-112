@@ -188,6 +188,5 @@ public class ArrayBag implements Bag {
         }
         System.out.println("bag 1 = " + bag1);
         System.out.println();
-        scan.close();
     }
 }

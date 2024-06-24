@@ -35,6 +35,7 @@ public class LLList implements List {
     public LLList() {
         head = new Node(null, null);
         length = 0;
+        last = head;
     }
     
     /*
@@ -85,6 +86,10 @@ public class LLList implements List {
             return last;
         }
 
+        if (i == length - 1) {
+            return last;
+        }
+
         Node trav = head;
         int travIndex = -1;
 
@@ -124,10 +129,10 @@ public class LLList implements List {
         }
         
         Node newNode = new Node(item, null);
-        Node prevNode = getNode(i - 1);           
+        Node prevNode = getNode(i - 1); 
         newNode.next = prevNode.next;
-        prevNode.next = newNode;
-
+        prevNode.next = newNode;          
+        
         if (i == length) {
             last = newNode;
         }
@@ -186,6 +191,17 @@ public class LLList implements List {
         
         str = str + "}";
         return str;
+    }
+
+    /*
+     * getLastItem - returns the item in the last node
+     */
+    public Object getLastItem() {
+        if (length == 0) {
+            throw new NoSuchElementException();
+        }
+
+        return last.item;
     }
     
     /*

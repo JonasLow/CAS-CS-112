@@ -83,6 +83,13 @@ public class LinkedTree {
         }
     }
 
+    /*
+     * COUNTERS for levelOrderPrint():
+     * i - Total CURRENT nodes, including hypothetical nulls
+     * j - Maximum nodes, which is 2**(n + 1) - 1 for each level (sum of 2^n)
+     * k - Total nulls, including hypothetical nulls
+     * l - Next increment for maximum nodes (2^n)
+     */
     public void levelOrderPrint() {
         if (root == null) {
             return;

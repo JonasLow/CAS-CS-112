@@ -125,6 +125,32 @@ public class LinkedTree {
         System.out.println();
     }
 
+    public void preorderPrint() {
+        preorderPrintHelper(root);
+        System.out.println();
+    }
+
+    private void preorderPrintHelper(Node node) {
+        if (node != null) {
+            System.out.print(node.item + " ");
+            preorderPrintHelper(node.leftChild);
+            preorderPrintHelper(node.rightChild);
+        }
+    }
+
+    public void inorderPrint() {
+        inorderPrintHelper(root);
+        System.out.println();
+    }
+
+    private void inorderPrintHelper(Node node) {
+        if (node != null) {
+            inorderPrintHelper(node.leftChild);
+            System.out.print(node.item + " ");
+            inorderPrintHelper(node.rightChild);
+        }
+    }
+
     private static int numLeafNodesInTree(Node start) {
         if (start == null) {
             return 0;
